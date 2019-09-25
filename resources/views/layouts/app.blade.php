@@ -40,10 +40,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item" href="#">
+                        <li class="nav-item">
                           <a class="nav-link" href="#">News</a>
                         </li>
-                        <li class="nav-item" href="#">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
                           <a class="nav-link" href="#">Projects</a>
                         </li>
                         <!-- Authentication Links -->
