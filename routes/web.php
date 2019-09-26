@@ -21,15 +21,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/news', function() {
   return view('news');
-});
+})->name('news');
 
 Route::get('/about', function() {
   return view('about');
-});
+})->name('about');
 
 Route::get('/projects', function() {
   return view('projects');
-});
+})->name('projects');
 
 /*
 Auth::routes();
