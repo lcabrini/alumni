@@ -19,9 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/news', function() {
-  return view('news');
-})->name('news');
+Route::get('/news', 'ArticleController@index')->name('news');
 
 Route::get('/about', function() {
   return view('about');

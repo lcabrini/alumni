@@ -8,7 +8,11 @@
     </div>
 
     <div class="card-body">
-      <p>This is a news item.</p>
+      @foreach($articles as $article)
+        <h3>{{ $article->title }}</h3>
+
+        {{ $article->content }}
+      @endforeach
       @include('components.share')
     </div>
   </div>
