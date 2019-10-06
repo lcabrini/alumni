@@ -1,3 +1,5 @@
 <?php
 
-print("<p>Hello world!</p>");
+set_include_path(get_include_path() . PATH_SEPARATOR . '../');
+
+include_once('router.php');
