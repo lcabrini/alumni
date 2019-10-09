@@ -4,7 +4,7 @@ require_once('../vendor/autoload.php');
 session_start();
 
 $request = $_SERVER['REQUEST_URI'];
-if ($request == '/') {
+if ($request === '/') {
     $module = 'home';
 } else {
     $parts = explode('/', $request);
