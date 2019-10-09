@@ -4,24 +4,16 @@ require_once('vendor/autoload.php');
 session_start();
 
 $request = $_SERVER['REQUEST_URI'];
-switch ($request) {
-    case '/':
-        $file = 'home.php';
-        break;
-
-    case '/login':
-        $file = 'login.php';
-        break;
-
-    case '/register':
-        $file = 'register.php';
-        break;
-
-    default:
-        $file = '404.php';
-        break;
+if ($request == '/') {
+    $module = 'home';
+} else {
+    $parts = explode('/', $request);
+    $module = $parts[1];
 }
 
-require __DIR__ . '/' . $file;
-
-#require_once('home.php');
+$file = __DIR__ . '/' . $module . '.php';
+if (file_exists($file)) {
+    require $file;
+} else {
+    require '404.php';
+}
