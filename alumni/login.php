@@ -2,9 +2,6 @@
 
 require_once('util.php');
 
-use \Twig\Loader\FilesystemLoader;
-use \Twig\Environment;
-
 function authenticate($email, $password) {
     $db = get_database_connection();
     $sql = "select user_id from users where email = ? and 
@@ -22,9 +19,6 @@ function authenticate($email, $password) {
     return $ret;
 }
 
-$loader = new FilesystemLoader('../templates');
-$twig = new Environment($loader);
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_id = authenticate($_POST['email'], $_POST['password']);
     if ($user_id > 0) {
@@ -35,5 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: /login");
     }
 } else {
+    $twig = get_twig();
     echo $twig->render('login_form.twig');
 }

@@ -1,5 +1,8 @@
 <?php
 
+use \Twig\Loader\FilesystemLoader;
+use \Twig\Environment;
+
 function get_database_connection() 
 {
     if (array_key_exists("db", $GLOBALS)) {
@@ -13,4 +16,10 @@ function get_database_connection()
     $link = mysqli_connect($host, $user, $password, $db);
     $GLOBALS['db'] = $link;
     return $link;
+}
+
+function get_twig() {
+    $loader = new FilesystemLoader('../templates');
+    $twig = new Environment($loader);
+    return $twig;
 }
