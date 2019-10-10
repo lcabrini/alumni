@@ -8,6 +8,6 @@ create table if not exists `users` (
     unique(email)
 ) engine=InnoDB default charset=utf8;
 
-insert into `users`(email, password) values('admin', password('s3kr3t'));
+insert into `users`(email, password) values('admin@example.com', password('s3kr3t'));
 
 
