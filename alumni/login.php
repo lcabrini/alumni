@@ -26,6 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: /dashboard");
         die();
     } else {
+        $_SESSION['message'] = array(
+            'type' => 'is-danger',
+            'text' => 'Authentication failed!'
+        );
         header("Location: /login");
     }
 } else {

@@ -21,5 +21,10 @@ function get_database_connection()
 function get_twig() {
     $loader = new FilesystemLoader('../templates');
     $twig = new Environment($loader);
+    if (isset($_SESSION['message'])) {
+        $twig->addGlobal('message', $_SESSION['message']);
+        unset($_SESSION['message']);
+    }
+
     return $twig;
 }

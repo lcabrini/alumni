@@ -16,6 +16,12 @@
   <body>
     {{ include('nav.twig') }}
 
+    {% if message is defined %}
+      <div class="notification {{ message.type }}">
+        {{ message.text }}
+      </div>
+    {% endif %}
+
     <section class="section">
       <div class="container">
     
