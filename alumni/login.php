@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die();
     } else {
         $_SESSION['message'] = array(
+            // XXX: assuming Bulma here. Is that a good thing?
             'type' => 'is-danger',
             'text' => 'Authentication failed!'
         );
