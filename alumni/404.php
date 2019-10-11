@@ -1,8 +1,6 @@
 <?php
 
-use \Twig\Loader\FilesystemLoader;
-use \Twig\Environment;
+require_once('util.php');
 
-$loader = new FilesystemLoader('../templates');
-$twig = new Environment($loader);
+$twig = get_twig();
 echo $twig->render('404.twig', ['page' => $_SERVER['REQUEST_URI']]);
