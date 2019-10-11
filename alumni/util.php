@@ -25,6 +25,9 @@ function get_twig() {
         $twig->addGlobal('message', $_SESSION['message']);
         unset($_SESSION['message']);
     }
+    if (isset($_SESSION['user'])) {
+        $twig->addGlobal('user', $_SESSION['user']);
+    }
 
     return $twig;
 }

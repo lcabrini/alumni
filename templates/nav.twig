@@ -25,6 +25,7 @@
     </div>
 
     <div class="navbar-end">
+    {% if not user is defined %}
       <a class="navbar-item" href="/login">
         Login
       </a>
@@ -32,6 +33,10 @@
       <a class="navbar-item" href="/register">
         Register
       </a>
-    </a>
-  </div>
+    {% else %}
+      <a class="navbar-item" href="/logout">
+        Logout
+      </a>
+    {% endif %}
+    </div>
 </nav>
