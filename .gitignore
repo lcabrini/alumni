@@ -1,3 +1,4 @@
 .*.swp
 vendor/
+public/.htaccess
 public/media/logo.png
