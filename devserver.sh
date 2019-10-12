@@ -1,14 +1,11 @@
-#! /bin/sh
+#! /bin/zsh
 
 ht=public/.htaccess
-host=$(grep ALUMNI_DATABASE_HOST $ht | awk '{print $3}')
-user=$(grep ALUMNI_DATABASE_USER $ht | awk '{print $3}')
-password=$(grep ALUMNI_DATABASE_PASSWORD $ht | awk '{print $3}')
-database=$(grep ALUMNI_DATABASE_NAME $ht | awk '{print $3}')
-
-export ALUMNI_DATABASE_HOST=$host
-export ALUMNI_DATABASE_USER=$user
-export ALUMNI_DATABASE_PASSWORD=$password
-export ALUMNI_DATABASE_NAME=$database
+while read line; do
+    var=$(print $line | awk '{print $2}')
+    val=$(print $line | awk '{print $3}')
+    eval $var=$val
+    export $var
+done < <(cat $ht | grep SetEnv)
 
 php -S localhost:8000 -t public
