@@ -1,3 +1,8 @@
+SetEnv ALUMNI_DATABASE_HOST localhost
+SetEnv ALUMNI_DATABASE_USER alumni
+SetEnv ALUMNI_DATABASE_PASSWORD changeme
+SetEnv ALUMNI_DATABASE_NAME alumni
+
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-d
