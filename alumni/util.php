@@ -36,14 +36,13 @@ function get_database_connection()
     }
 
     $link = mysqli_connect($host, $user, $password, $db);
-    if ($link) {
+    if (!$link) {
         error_log("Cannot connect to database server: "
             . mysqli_connect_error());
         $failed = true;
     }
 
-    if ($failed) {
-        // TODO: continue here.
+    if ($failed === true) {
         require '500.php';
     } 
 

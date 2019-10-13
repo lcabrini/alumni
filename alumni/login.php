@@ -4,6 +4,9 @@ require_once('util.php');
 
 function authenticate($email, $password) {
     $db = get_database_connection();
+    if (!$db) {
+        require '500.php';
+    }
     $sql = "select user_id from users where email = ? and 
         password = password(?)";
     $stmt = $db->prepare($sql);
