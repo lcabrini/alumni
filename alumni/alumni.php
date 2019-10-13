@@ -11,7 +11,7 @@ if ($request === '/') {
     $module = $parts[1];
 }
 
-$file = __DIR__ . '/' . $module . '.php';
+$file = __DIR__ . '/routes/' . $module . '.php';
 if (file_exists($file)) {
     require $file;
 } else {
