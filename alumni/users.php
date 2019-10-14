@@ -16,3 +16,13 @@ function authenticate($email, $password) {
     $stmt->close();
     return $ret;
 }
+
+function add_user($user) {
+    $db = get_database_connection();
+    $sql = "insert into users(email, password, year_graduated)
+        values(?, ?, ?)";
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param("ssi", $user['email'], $user['password'],
+        $user['year_graduated']);
+    $stmt->execute();
+}
