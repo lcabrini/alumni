@@ -1,10 +1,8 @@
 <?php
 
-use \Twig\Loader\FilesystemLoader;
-use \Twig\Environment;
+require 'util.php';
 
-$loader = new FilesystemLoader('../templates');
-$twig = new Environment($loader);
+$twig = get_twig();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "post";
