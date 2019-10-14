@@ -5,6 +5,8 @@ create table if not exists `users` (
     `email` varchar(100) not null,
     `password` varchar(255) not null,
     `year_graduated` smallint not null,
+    `status` enum('new', 'active', 'deleted') default 'new',
+    `registration_date` datetime default current_timestamp,
     primary key(user_id),
     unique(email)
 ) engine=InnoDB default charset=utf8;
