@@ -26,3 +26,14 @@ function add_user($user) {
         $user['year_graduated']);
     $stmt->execute();
 }
+
+function email_exists($email) {
+    $db = get_database_connection();
+    $sql = "select count(*) from users where email = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_row();
+    return $row[0] == 0;
+}
