@@ -63,3 +63,24 @@ function get_twig() {
 
     return $twig;
 }
+
+function sendmail($to, $body) {
+    $host = getenv('ALUMNI_MAIL_HOST');
+    $port = getenv('ALUMNI_MAIL_PORT');
+    $enc = getenv('ALUMNI_MAIL_ENCRYPTION');
+    $user = getenv('ALUMNI_MAIL_USERNAME');
+    $password = getenv('ALUMNI_MAIL_PASSWORD');
+    
+    $transport = (new Swift_SmtpTransport($host, $port, $enc))
+        ->setUsername($user)
+        ->setPassword($password);
+    $mailer = new Swift_Mailer($transport);
+    $message = (new Swift_Message('Test email'))
+        ->setFrom(['lcabrini.devl@gmail.com' => 'Lorenzo'])
+        ->setTo($to)
+        ->setCC([])
+        ->setBcc([])
+        ->setBody($body)
+        ->setContentType('text/plain');
+    $mailer->send($message);
+}
