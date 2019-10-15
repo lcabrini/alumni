@@ -3,6 +3,12 @@ SetEnv ALUMNI_DATABASE_USER alumni
 SetEnv ALUMNI_DATABASE_PASSWORD changeme
 SetEnv ALUMNI_DATABASE_NAME alumni
 
+SetEnv ALUMNI_MAIL_HOST smtp.gmail.com
+SetEnv ALUMNI_MAIL_PORT 587
+SetEnv ALUMNI_MAIL_ENCRYPTION tls
+SetEnv ALUMNI_MAIL_USERNAME example@gmail.com
+SetEnv ALUMNI_MAIL_PASSWORD s3kr3t
+
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-d
