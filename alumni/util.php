@@ -84,3 +84,8 @@ function sendmail($to, $body) {
         ->setContentType('text/html');
     $mailer->send($message);
 }
+
+function base_url() {
+    // TODO: more work needs to go into this. HTTP/HTTPS?
+    return "http://" . $_SERVER['SERVER_NAME'];
+}
