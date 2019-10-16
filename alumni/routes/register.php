@@ -19,8 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user['email'] = $_POST['email'];
         $user['password'] = $_POST['password'];
         $user['year_graduated'] = $_POST['year_graduated'];
-        add_user($user);
-        sendmail($user['email'], "This is a test message");
+        $uid = add_user($user);
+        $code = generate_confirmation_code($uid);
+        $message = $twig->render('confirmation_email.twig',
+            ['code' => $code]);
+        sendmail($user['email'], $message);
     }
 } else {
     echo $twig->render('register_form.twig');
