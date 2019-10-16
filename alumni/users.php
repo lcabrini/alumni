@@ -25,6 +25,7 @@ function add_user($user) {
     $stmt->bind_param("ssi", $user['email'], $user['password'],
         $user['year_graduated']);
     $stmt->execute();
+    return mysql_insert_id($db);
 }
 
 function email_exists($email) {
