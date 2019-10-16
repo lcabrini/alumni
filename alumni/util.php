@@ -88,5 +88,10 @@ function sendmail($to, $body) {
 
 function base_url() {
     // TODO: more work needs to go into this. HTTP/HTTPS?
-    return "http://" . $_SERVER['SERVER_NAME'];
+    $url = "http://" . $_SERVER['SERVER_NAME'];
+    if ($_SERVER['SERVER_PORT'] != 80) {
+        $url .= ':' . $_SERVER['SERVER_PORT'];
+    }
+
+    return $url;
 }
