@@ -11,11 +11,11 @@ create table if not exists users (
     unique(email)
 ) engine=InnoDB default charset=utf8;
 
-insert into `users`(email, password, year_graduated) values('admin@example.com', password('s3kr3t'), 2000);
+insert into users(email, password, year_graduated) values('admin@example.com', password('s3kr3t'), 2000);
 
-create table if not exists `confirmation_codes` (
+create table if not exists confirmation_codes (
     confirmation_id int(11) auto_increment,
-    user_fk int(11) not null references `users`,
+    user_fk int(11) not null references users,
     code varchar(20) not null,
     primary key(confirmation_id),
     unique(code)
