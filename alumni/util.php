@@ -81,6 +81,6 @@ function sendmail($to, $body) {
         ->setCC([])
         ->setBcc([])
         ->setBody($body)
-        ->setContentType('text/plain');
+        ->setContentType('text/html');
     $mailer->send($message);
 }
