@@ -46,5 +46,6 @@ function generate_confirmation_code($user_id) {
     $stmt = $db->prepare($sql);
     $stmt->bind_param("is", $user_id, $code);
     $stmt->execute();
+    $stmt->close();
     return $code;
 }
