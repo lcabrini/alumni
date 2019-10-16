@@ -37,3 +37,13 @@ function email_exists($email) {
     $row = $result->fetch_row();
     return $row[0] == 0;
 }
+
+function generate_confirmation_code($user_id) {
+    $code = bin2hex(random_bytes(16));
+    $db = get_database_connection();
+    $sql = "insert into confirmation_codes(user, code) values(?, ?)";
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param("is", $user_id, $code);
+    $stmt->execute();
+    return $code;
+}
