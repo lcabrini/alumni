@@ -53,6 +53,7 @@ function get_database_connection()
 function get_twig() {
     $loader = new FilesystemLoader('../templates');
     $twig = new Environment($loader);
+    $twig->addGlobal('base_url', base_url());
     if (isset($_SESSION['message'])) {
         $twig->addGlobal('message', $_SESSION['message']);
         unset($_SESSION['message']);
