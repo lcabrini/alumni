@@ -16,7 +16,7 @@ insert into users(email, password, year_graduated) values('admin@example.com', p
 create table if not exists confirmation_codes (
     confirmation_id int(11) auto_increment,
     user_fk int(11) not null references users,
-    code varchar(20) not null,
+    code varchar(50) not null,
     primary key(confirmation_id),
     unique(code)
 ) engine=InnoDB default charset=utf8;
