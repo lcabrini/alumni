@@ -65,7 +65,7 @@ function get_twig() {
     return $twig;
 }
 
-function sendmail($to, $body) {
+function sendmail($to, $subject, $body) {
     $host = getenv('ALUMNI_MAIL_HOST');
     $port = getenv('ALUMNI_MAIL_PORT');
     $enc = getenv('ALUMNI_MAIL_ENCRYPTION');
@@ -76,7 +76,7 @@ function sendmail($to, $body) {
         ->setUsername($user)
         ->setPassword($password);
     $mailer = new Swift_Mailer($transport);
-    $message = (new Swift_Message('Test email'))
+    $message = (new Swift_Message($subject))
         ->setFrom(['lcabrini.devl@gmail.com' => 'Lorenzo'])
         ->setTo($to)
         ->setCC([])

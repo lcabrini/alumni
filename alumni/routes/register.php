@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $code = generate_confirmation_code($uid);
         $message = $twig->render('confirmation_email.twig',
             ['code' => $code]);
-        sendmail($user['email'], $message);
+        sendmail($user['email'], "New registration", $message);
     }
 } else {
     echo $twig->render('register_form.twig');
