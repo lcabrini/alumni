@@ -11,7 +11,9 @@ $stmt->bind_param("s", $code);
 $stmt->execute();
 $result = $stmt->get_result();
 if ($result->num_rows == 0) {
-    // TODO: the confirmation code was not found
+    $twig = get_twig();
+    echo $twig->render('invalid_confirmation_code.twig',
+        ['code' => $code]);
     die();
 }
 

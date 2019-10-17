@@ -1,0 +1,44 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <p>We are sorry, but the confirmation code <b>{{ code }}</b> was not
+  found on our system.</p>
+
+  <p>The confirmation code is only valid for a limited period of time.
+  If you have recently registered, your registration code may have
+  expired. Not a problem! You can request a new code below.</p>.
+
+  <div class="container columns">
+    <div class="card column is-half is-offset-one-quarter">
+      <header class="card-header">
+        <p class="card-header-title">
+          Confirmation Code
+        </p>
+      </header>
+
+      <div class="card-content">
+        <p class="subtitle">
+        You can request a new confirmation code here.
+        </p>
+
+        <form method="post">
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left">
+              <input type="email" class="input" name="email" placeholder="Email address">
+              <span class="icon is-small is-left">
+                <i class="fa fa-envelope"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field has-text-right">
+            <button class="button is-success">
+              Request
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
