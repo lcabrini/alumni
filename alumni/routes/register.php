@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $user['email'] = $_POST['email'];
         $user['password'] = $_POST['password'];
+        $user['full_name'] = $_POST['full_name'];
         $user['year_graduated'] = $_POST['year_graduated'];
         $uid = add_user($user);
         $code = generate_confirmation_code($uid);

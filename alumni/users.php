@@ -19,11 +19,11 @@ function authenticate($email, $password) {
 
 function add_user($user) {
     $db = get_database_connection();
-    $sql = "insert into users(email, password, year_graduated)
-        values(?, password(?), ?)";
+    $sql = "insert into users(email, password, full_name, year_graduated)
+        values(?, password(?), ?, ?)";
     $stmt = $db->prepare($sql);
-    $stmt->bind_param("ssi", $user['email'], $user['password'],
-        $user['year_graduated']);
+    $stmt->bind_param("sssi", $user['email'], $user['password'],
+        $user['full_name'], $user['year_graduated']);
     $stmt->execute();
     return $db->insert_id;
 }
