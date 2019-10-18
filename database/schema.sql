@@ -18,6 +18,11 @@ create table if not exists confirmation_codes (
     confirmation_id int(11) auto_increment,
     user_fk int(11) not null references users,
     code varchar(50) not null,
+    expires datetime not null,
     primary key(confirmation_id),
     unique(code)
 ) engine=InnoDB default charset=utf8;
+
+create trigger confirmation_code_create before insert on confirmation_codes
+for each row set
+    new.expires = timestampadd(day, 1, now());
