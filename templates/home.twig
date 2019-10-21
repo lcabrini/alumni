@@ -1,7 +1,13 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  <h1>Welcome</h1>
+  <div class="container">
+    <h1 class="title">
+      {{ message.title }}
+    </h1>
 
-  <p>This is a {{ testvar }}.</p>
+    <div>
+      {{ message.body | raw }}
+    </div>
+  </div>
 {% endblock %}
