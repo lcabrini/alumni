@@ -9,5 +9,5 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
-echo $twig->render('home.twig', ['message' => $row]);
+echo $twig->render('home.twig', ['intro' => $row]);
 $stmt->close();
