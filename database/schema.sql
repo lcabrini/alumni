@@ -33,7 +33,8 @@ create table if not exists content(
     title varchar(255) not null,
     subtitle varchar(255) not null default '',
     body text not null,
-    primary key(content_id)
+    primary key(content_id),
+    unique(content_key)
 ) engine=InnoDB default charset=utf8;
 
 insert into content(content_key, title, subtitle, body) values(
@@ -41,4 +42,11 @@ insert into content(content_key, title, subtitle, body) values(
     'About Us',
     '',
     '<p>Todo: write content here.</p>'
+);
+
+insert into content(content_key, title, subtitle, body) values(
+    'intro_message',
+    'Welcome!',
+    '',
+    '<p>TODO: write content here.</p>'
 );
