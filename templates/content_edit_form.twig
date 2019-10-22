@@ -12,11 +12,11 @@
 
       <div class="field">
         <label class="label">Content</label>
-        <textarea id="summernote">{{ content.body }}</textarea>
+        <textarea id="summernote" name="body">{{ content.body }}</textarea>
       </div>
 
-      <input type="hidden" name="{{ content.subtitle }}">
-      <input type="hidden" name="{{ content.content_key }}">
+      <input type="hidden" name="subtitle" value="{{ content.subtitle }}">
+      <input type="hidden" name="content_key" value="{{ content.content_key }}">
 
       <div class="field has-text-right">
         <button class="button is-success">
