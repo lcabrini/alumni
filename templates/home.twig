@@ -9,5 +9,9 @@
     <div>
       {{ intro.body | raw }}
     </div>
+
+    {% if user == 1 %}
+      <a href="/edit_content/intro_message">Edit</a>
+    {% endif %}
   </div>
 {% endblock %}
