@@ -6,16 +6,17 @@
       <div class="field">
         <label class="label">Title</label>
         <div class="control">
-          <input type="text" class="input" name="title">
+          <input type="text" class="input" name="title" value="{{ content.title }}">
         </div>
       </div>
 
       <div class="field">
         <label class="label">Content</label>
-        <div id="summernote"></div>
+        <textarea id="summernote">{{ content.body }}</textarea>
       </div>
 
-      <input type="hidden" name="{{ content_key }}">
+      <input type="hidden" name="{{ content.subtitle }}">
+      <input type="hidden" name="{{ content.content_key }}">
 
       <div class="field has-text-right">
         <button class="button is-success">
