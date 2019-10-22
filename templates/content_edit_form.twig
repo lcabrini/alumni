@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="container">
+    <form method="post">
+      <div class="field">
+        <label class="label">Title</label>
+        <div class="control">
+          <input type="text" class="input" name="title">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Content</label>
+        <div id="editorjs"></div>
+      </div>
+  </div>
+{% endblock %}
