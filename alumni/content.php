@@ -15,10 +15,11 @@ function get_content_by_key($key) {
 
 function update_content($content) {
     $db = get_database_connection();
+    $subtitle = $content['subtitile'] || "";
     $sql = "update content set title = ?, subtitle = ?, body = ? " .
         "where content_key = ?";
     $stmt = $db->prepare($sql);
-    $stmt->bind_param("ssss", $content->title, $content->subtitle,
-        $content->body, $content->content_key);
+    $stmt->bind_param("ssss", $content['title'], $subtitle,
+        $content['body'], $content['content_key']);
     $stmt->execute();
 }
