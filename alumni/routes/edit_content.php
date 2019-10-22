@@ -8,7 +8,8 @@ if (($_SESSION['user'] != 1)) {
     header("Location: /");
 } else {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        echo "POST";
+        update_content($_POST);
+        header("Location: /");
     } else {
         $parts = explode("/", $_SERVER['REQUEST_URI']);
         $content_key = $parts[2];
