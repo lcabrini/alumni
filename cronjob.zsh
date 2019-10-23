@@ -1,5 +1,9 @@
 #! /bin/zsh
 
+if [[ -z $(pgrep mysqld ]]; then
+    exit
+fi
+
 ht=$0:A:h/public/.htaccess
 while read line; do
     var=$(print $line | awk '{print $2}')
