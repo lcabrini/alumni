@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-if [[ -z $(pgrep mysqld ]]; then
+if [[ -z $(pgrep mysqld) ]]; then
     exit
 fi
 
