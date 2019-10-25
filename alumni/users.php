@@ -49,3 +49,32 @@ function generate_confirmation_code($user_id) {
     $stmt->close();
     return $code;
 }
+
+function parse_users_sheet($file) {
+    $users = array();
+    $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+    $reader->setReadDataOnly(true);
+    $spreadsheet = $reader->load($file);
+    $worksheet = $spreadsheet->getActiveSheet();
+    foreach ($worksheet->getRowIterator() as $row) {
+        $user = array();
+        foreach ($row->getCellIterator() as $key => $cell) {
+            switch ($key) {
+            case 'A':
+                $user['name'] = $cell->getValue();
+                break;
+            case 'B':
+                $user['year'] = $cell->getValue();
+                break;
+            case 'C':
+                $user['email'] = $cell->getValue();
+                break;
+            default:
+                break; // TODO: what to do here?
+            }
+        }
+        $users[] = $user;
+    }
+
+    return $users;
+}
