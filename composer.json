@@ -1,6 +1,7 @@
 {
     "require": {
         "twig/twig": "^2.0",
-        "swiftmailer/swiftmailer": "^6.2"
+        "swiftmailer/swiftmailer": "^6.2",
+        "phpoffice/phpspreadsheet": "^1.9"
     }
 }
