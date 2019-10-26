@@ -1,0 +1,21 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="container">
+    <form method="post" enctype="multipart/form-data">
+      <div class="field">
+        <label class="label">Upload users as CSV</label>
+        <div class="control">
+          <input type="file" class="input" name="users_file">
+        </div>
+      </div>
+
+      <div class="field has-text-right">
+        <button class="button-is-success">
+          Import
+        </button>
+      </div>
+
+    </form>
+  </div>
+{% endblock %}
