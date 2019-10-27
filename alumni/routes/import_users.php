@@ -9,14 +9,15 @@ if ($_SESSION['user'] != 1) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!isset($_FILES['users_file'])) {
             $twig = get_twig();
-            $twig->render('500.php');
+            echo $twig->render('500.php');
         } else {
             require_once('users.php');
             $users = parse_users_sheet($_FILES['users_file']['tmp_name']);
             foreach ($users as $user) {
                 add_user($user);
             }
-            echo "done";
+            $twig = get_twig();
+            echo $twig->render('import_users_result.twig');
         }
     } else {
         $twig = get_twig();
