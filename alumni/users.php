@@ -61,10 +61,10 @@ function parse_users_sheet($file) {
         foreach ($row->getCellIterator() as $key => $cell) {
             switch ($key) {
             case 'A':
-                $user['name'] = $cell->getValue();
+                $user['full_name'] = $cell->getValue();
                 break;
             case 'B':
-                $user['year'] = $cell->getValue();
+                $user['year_graduated'] = $cell->getValue();
                 break;
             case 'C':
                 $user['email'] = $cell->getValue();
