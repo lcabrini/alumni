@@ -13,8 +13,10 @@ if ($_SESSION['user'] != 1) {
         } else {
             require_once('users.php');
             $users = parse_users_sheet($_FILES['users_file']['tmp_name']);
-            var_dump($users);
-            die()
+            foreach ($users as $user) {
+                add_user($user);
+            }
+            echo "done";
         }
     } else {
         $twig = get_twig();
