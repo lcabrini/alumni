@@ -18,6 +18,12 @@ function authenticate($email, $password) {
 }
 
 function add_user($user) {
+    // TEMP: this should be a random password.
+    if (!isset($user['password'])) {
+        $user['password'] = "changeme";
+    }
+    // END TEMP
+
     $db = get_database_connection();
     $sql = "insert into users(email, password, full_name, year_graduated)
         values(?, password(?), ?, ?)";
