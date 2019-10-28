@@ -1,0 +1,6 @@
+{% if message is defined %}
+  <div class="notification {{ message.type }}">
+    {{ message.text }}
+  </div>
+{% endif %}
+

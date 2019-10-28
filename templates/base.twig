@@ -11,13 +11,10 @@
   </head>
 
   <body>
-    {{ include('nav.twig') }}
+    {% block notification %}
+    {% endblock %}
 
-    {% if message is defined %}
-      <div class="notification {{ message.type }}">
-        {{ message.text }}
-      </div>
-    {% endif %}
+    {{ include('nav.twig') }}
 
     <section class="section">
       <div class="container">
