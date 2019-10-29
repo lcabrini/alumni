@@ -84,3 +84,14 @@ function parse_users_sheet($file) {
 
     return $users;
 }
+
+function is_admin() {
+    // XXX: This is a temporary implementation. Once I have roles 
+    // implemented this function should rather check if the user
+    // plays the admin role.
+    if (!isset($_SESSION['user'])) {
+        return false;
+    } else {
+        return $_SESSION['user'] === 1;
+    }
+}
