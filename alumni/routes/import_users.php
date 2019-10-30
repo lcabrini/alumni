@@ -11,6 +11,11 @@ if ($_SESSION['user'] != 1) {
             $twig = get_twig();
             echo $twig->render('500.php');
         } else {
+            $file = basename($_FILES['users_file']['name']);
+            $filetype = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+            if ($filetype != "csv") {
+                require_once('500.php');
+            }
             require_once('users.php');
             $users = parse_users_sheet($_FILES['users_file']['tmp_name']);
             foreach ($users as $user) {
