@@ -14,6 +14,18 @@ create table if not exists users (
 
 insert into users(email, password, year_graduated) values('admin@example.com', password('s3kr3t'), 2000);
 
+delimiter $$
+create trigger before_delete_user before delete on users
+for each row begin
+    if old.user_id = 1 then    
+        signal sqlstate '54100' 
+        set message_text = "You cannot delete the admin user",
+        mysql_errno = 2030;
+    end if;
+end
+$$
+delimiter ;
+
 create table if not exists confirmation_codes (
     confirmation_id int(11) auto_increment,
     user_fk int(11) not null references users,
