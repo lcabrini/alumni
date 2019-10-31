@@ -95,3 +95,7 @@ function is_admin() {
         return $_SESSION['user'] === 1;
     }
 }
+
+function generate_password() {
+    return bin2hex(random_bytes(10));
+}
