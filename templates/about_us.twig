@@ -6,5 +6,9 @@
     <h1 class="title">{{ title }}</h1>
 
     <div>{{ body | raw }}</div>
+
+    {% if user == 1 %}
+      <a href="/edit_content/intro_message">Edit</a>
+    {% endif %}
   </div>
 {% endblock %}
