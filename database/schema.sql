@@ -62,3 +62,12 @@ insert into content(content_key, title, subtitle, body) values(
     '',
     '<p>TODO: write content here.</p>'
 );
+
+create table if not exists projects(
+    project_id int(11) auto_increment,
+    project_name varchar(200) not null,
+    description text not null,
+    status enum('proposed', 'pending', 'active', 'done') 
+        default 'proposed',
+    primary key(project_id)
+) engine=InnoDB default charset=utf8;
