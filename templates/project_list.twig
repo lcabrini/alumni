@@ -1,0 +1,28 @@
+{% extends "default.twig" %}
+
+{% block content %}
+  <h1 class="title">Open Projects</h1>
+
+  {% for project in projects %}
+    {% if loop.first %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Project Name</th>
+          </tr>
+        </thead>
+        <tbody>
+    {% endif %}
+
+    <tr>
+      <td>{{ project.project_name }}</td>
+    </tr>
+
+    {% if loop.last %}
+      </tbody>
+      </table>
+    {% endif %}
+  {% else %}
+    <p>There are currently no projects.</p>
+  {% endfor %}
+{% endblock %}
