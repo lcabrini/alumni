@@ -1,6 +1,10 @@
 {% extends "default.twig" %}
 
 {% block content %}
+  {% if user == 1 %}
+    <a href="/add_project">Add Project</a>
+  {% endif %}
+
   <h1 class="title">Open Projects</h1>
 
   {% for project in projects %}
