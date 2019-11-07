@@ -1,0 +1,21 @@
+{% extends "summernote.twig" %}
+
+{% block content %}
+  <div class="container">
+    <form method="post">
+      <div class="field">
+        <label class="label">Project Name</label>
+        <div class="control">
+          <input type="text" class="input" name="project_name">
+        </div>
+      </div>
+
+      <div class="field has-text-right">
+        <button class="button is-success">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+  
+{% endblock %}
