@@ -9,8 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'type' => 'is-success',
         'text' => 'Added project'
     );
-    /*$twig = get_twig();
-    $twig->render('home.twig');*/
     header("Location: /");
 } else {
     $twig = get_twig();
