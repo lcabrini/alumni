@@ -8,6 +8,16 @@ if [[ -z $(whence php) ]]; then
     exit 1
 fi
 
+php_version=$(php --version | head -n 1 | awk '{ print $2}')
+php_major=$(print $php_version | cut -d. -f1)
+php_minor=$(print $php_version | cut -d. -f2)
+if [[ $php_major -ne 7 ]]; then
+    print "Error: Alumni requires PHP 7"
+    exit 1
+elif [[ $php_minor -lt 3 ]]; then
+    print "Warning: Alumni has only been tested with PHP 7.3"
+fi
+
 ht=public/.htaccess
 if [[ ! -f $ht ]]; then
     cp $ht.in $ht
