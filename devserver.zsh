@@ -1,5 +1,13 @@
 #! /bin/zsh
 
+if [[ -z $(whence php) ]]; then
+    print "Error: PHP not found on the system"
+    print "Unable to continue"
+    print "Please install with:"
+    print "    sudo dnf install php"
+    exit 1
+fi
+
 ht=public/.htaccess
 if [[ ! -f $ht ]]; then
     cp $ht.in $ht
