@@ -1,5 +1,9 @@
 #! /bin/zsh
 
+req_php_major=7
+req_php_minor=3
+req_php_version=$req_php_major.$req_php_minor
+
 if [[ -z $(whence php) ]]; then
     print "Error: PHP not found on the system"
     print "Unable to continue"
@@ -11,11 +15,12 @@ fi
 php_version=$(php --version | head -n 1 | awk '{ print $2}')
 php_major=$(print $php_version | cut -d. -f1)
 php_minor=$(print $php_version | cut -d. -f2)
-if [[ $php_major -ne 7 ]]; then
-    print "Error: Alumni requires PHP 7"
+if [[ $php_major -ne $req_php_major ]]; then
+    print "Error: Alumni requires PHP $req_php_major"
     exit 1
-elif [[ $php_minor -lt 3 ]]; then
-    print "Warning: Alumni has only been tested with PHP 7.3"
+elif [[ $php_minor -lt $req_php_minor ]]; then
+    print "Warning: Alumni has only been tested with PHP $req_php_version+"
+    print "If something doesn't work, try upgrading to this version"
 fi
 
 ht=public/.htaccess
