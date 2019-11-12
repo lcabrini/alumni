@@ -63,6 +63,13 @@ insert into content(content_key, title, subtitle, body) values(
     '<p>TODO: write content here.</p>'
 );
 
+create table if not exists news_sections(
+    id int(11) auto_increment,
+    name varchar(100) not null,
+    primary key(id),
+    unique(name)
+) engine=InnoDB default charset=utf8;
+
 create table if not exists projects(
     project_id int(11) auto_increment,
     project_name varchar(200) not null,
